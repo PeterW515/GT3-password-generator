@@ -9,7 +9,7 @@ function writePassword() {
 
 }
 
-//generate password 
+//generate password function, prompts for input and returns a password
 function generatePassword() {
   //create arrays of A-Z, a-z, 0-9, and special characters
   const upperCaseChars = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
@@ -39,183 +39,28 @@ function generatePassword() {
 
 
   /*LOWERCASE CHARACTER CHECK*/
-  //prompt user for types of characters
-  let userLCaseInput = prompt('Would you like lowercase characters in your password? Please type "y" for yes or "n" for no.');
-
-  //if user hits cancel, variable will be null. Check for that and exit method if true
-  if (userLCaseInput === null) {
-    return "";
-  }
-
-  //check if entry is valid
-  let pwLCaseValid = false;
-  if(userLCaseInput==='y'||userLCaseInput==='n'){
-    pwLCaseValid = true;
-  }
-
-  //if entry is not valid, continue prompting
-  while (!pwLCaseValid) {
-    userLCaseInput = prompt('Would you like lowercase characters in your password? Please enter exactly "y" for yes or "n" for no.');
-    //if user hits cancel, variable will be null. Check for that and exit method if true
-    if (userLCaseInput === null) {
-      return "";
-    }
-
-    //check if entry is valid
-    if(userLCaseInput==='y'||userLCaseInput==='n'){
-      pwLCaseValid = true;
-    }
-  }
-
-  //store as boolean, true if lowercase can be used, false if not
-  let pwLCase;
-  if (userLCaseInput === 'y') {
-    pwLCase = true;
-  } else {
-    pwLCase = false;
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
+  //check if user wants lowercase characters in password
+  let userLCaseInput = confirm('Would you like lowercase characters in your password? Click OK for yes or Cancel for no.');
 
 
 /*UPPER CASE CHARACTER CHECK*/
-    //prompt user for types of characters
-    let userUCaseInput = prompt('Would you like uppercase characters in your password? Please type "y" for yes or "n" for no.');
-
-    //if user hits cancel, variable will be null. Check for that and exit method if true
-    if (userUCaseInput === null) {
-      return "";
-    }
-  
-    //check if entry is valid
-    let pwUCaseValid = false;
-    if(userUCaseInput==='y'||userUCaseInput==='n'){
-      pwUCaseValid = true;
-    }
-  
-    //if entry is not valid, continue prompting
-    while (!pwUCaseValid) {
-      userUCaseInput = prompt('Would you like uppercase characters in your password? Please enter exactly "y" for yes or "n" for no.');
-      //if user hits cancel, variable will be null. Check for that and exit method if true
-      if (userUCaseInput === null) {
-        return "";
-      }
-  
-      //check if entry is valid
-      if(userUCaseInput==='y'||userUCaseInput==='n'){
-        pwUCaseValid = true;
-      }
-    }
-  
-    //store as boolean, true if uppercase can be used, false if not
-    let pwUCase;
-    if (userUCaseInput === 'y') {
-      pwUCase = true;
-    } else {
-      pwUCase = false;
-    }
-
-
-
-
-
-
-
-
-
-
-
-
+    //check if user wants uppercase characters in password
+    let userUCaseInput = confirm('Would you like uppercase characters in your password? Click OK for yes or Cancel for no.');
 
 
 /*NUMERIC CHARACTER CHECK*/
-      //prompt user for types of characters
-  let userNumericInput = prompt('Would you like numeric characters in your password? Please type "y" for yes or "n" for no.');
+      //check if user wants numbers in password
+  let userNumericInput = confirm('Would you like numeric characters in your password? Click OK for yes or Cancel for no.');
 
-  //if user hits cancel, variable will be null. Check for that and exit method if true
-  if (userNumericInput === null) {
-    return "";
-  }
-
-  //check if entry is valid
-  let pwNumericValid = false;
-  if(userNumericInput==='y'||userNumericInput==='n'){
-    pwNumericValid = true;
-  }
-
-  //if entry is not valid, continue prompting
-  while (!pwNumericValid) {
-    userNumericInput = prompt('Would you like numeric characters in your password? Please enter exactly "y" for yes or "n" for no.');
-    //if user hits cancel, variable will be null. Check for that and exit method if true
-    if (userNumericInput === null) {
-      return "";
-    }
-
-    //check if entry is valid
-    if(userNumericInput==='y'||userNumericInput==='n'){
-      pwNumericValid = true;
-    }
-  }
-
-  //store as boolean, true if numeric can be used, false if not
-  let pwNumeric;
-  if (userNumericInput === 'y') {
-    pwNumeric = true;
-  } else {
-    pwNumeric = false;
-  }
 
 
   /*SPECIAL CHARACTER CHECK*/
-    //prompt user for types of characters
-    let userSpecCharInput = prompt('Would you like special characters in your password? Please type "y" for yes or "n" for no.');
-
-    //if user hits cancel, variable will be null. Check for that and exit method if true
-    if (userSpecCharInput === null) {
-      return "";
-    }
-  
-    //check if entry is valid
-    let pwSpecCharValid = false;
-    if(userSpecCharInput==='y'||userSpecCharInput==='n'){
-      pwSpecCharValid = true;
-    }
-  
-    //if entry is not valid, continue prompting
-    while (!pwSpecCharValid) {
-      userSpecCharInput = prompt('Would you like special characters in your password? Please enter exactly "y" for yes or "n" for no.');
-      //if user hits cancel, variable will be null. Check for that and exit method if true
-      if (userSpecCharInput === null) {
-        return "";
-      }
-  
-      //check if entry is valid
-      if(userSpecCharInput==='y'||userSpecCharInput==='n'){
-        pwSpecCharValid = true;
-      }
-    }
-  
-    //store as boolean, true if lowercase can be used, false if not
-    let pwSpecChar;
-    if (userSpecCharInput === 'y') {
-      pwSpecChar = true;
-    } else {
-      pwSpecChar = false;
-    }
+    //check if user wants special characters in password
+    let userSpecCharInput = confirm('Would you like special characters in your password? Click OK for yes or Cancel for no.');
 
 
-    if (!pwLCase && !pwUCase && !pwNumeric && !pwSpecChar){
+
+    if (!userLCaseInput && !userUCaseInput && !userNumericInput && !userSpecCharInput){
       alert('You must choose at least one type of character. Please start over.');
       return '';
     }
@@ -275,24 +120,8 @@ for (let i = 0; i<pwLen; i++){
   password+=passwordArray[randNum];
   passwordArray.splice(randNum,1);
 }
-
-
 return password;
-
-
-//  console.log(pwLen);
-//  console.log(pwLCase);
-//  console.log(pwUCase);
-//  console.log(pwNumeric);
-//  console.log(pwSpecChar);
-//  console.log(passwordArray);
-//  console.log(possibleChars);
-//  console.log(password);
-
 }
-
-
-
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
